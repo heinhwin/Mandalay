@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mandalay.Models;
 
 namespace Mandalay
 {
@@ -14,6 +15,7 @@ namespace Mandalay
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IProductRepository, FakeProductRepository>();
             services.AddMvc();
         }
 
@@ -23,9 +25,11 @@ namespace Mandalay
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvc(configureRoutes =>
+            app.UseMvc(routes =>
             {
-
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Product}/{action=List}/{id?}");
             });
         }
     }
