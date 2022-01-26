@@ -9,7 +9,7 @@ namespace Mandalay.Models
     {
         public IQueryable<Product> Products => new List<Product>
         {
-            new Product { Name = "Tom Yum", Price = 5500 },
+            new Product { Name = "Tom Yum", Price = 13 },
             new Product { Name = "Roasted Duck", Price = 13000},
             new Product { Name = "Water", Price = 500}
         }.AsQueryable<Product>();

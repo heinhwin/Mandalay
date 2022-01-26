@@ -11,7 +11,6 @@ namespace Mandalay.Models
         {
             context = ctx;
         }
-
         public IQueryable<Product> Products => context.Products;
     }
 }
