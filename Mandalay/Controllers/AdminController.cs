@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Mandalay.Models;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Mandalay.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IProductRepository repository;
